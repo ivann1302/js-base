@@ -1,0 +1,12 @@
+.prettierignore
+node_modules
+dist
+build
+coverage
+.vscode
+.idea
+*.log
+package-lock.json
+.git
+*.min.js
+*.min.css
