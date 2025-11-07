@@ -1,5 +1,13 @@
 import { createRoot } from 'react-dom/client'
 import './index.scss'
-import App from './App.tsx'
+import { getDeviceType } from '@/shared/assets/lib/utils/device'
+import AppDesktop from './App.desktop'
+import AppMobile from './App.mobile'
 
-createRoot(document.getElementById('root')!).render(<App />)
+const deviceType = getDeviceType()
+const App = deviceType === 'mobile' ? AppMobile : AppDesktop
+
+const rootElement = document.getElementById('root')!
+if (rootElement) {
+  createRoot(rootElement).render(<App />)
+}

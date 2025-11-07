@@ -1,7 +1,7 @@
 // import styles from './App.module.scss'
-
+import { MainPage } from '@/pages/main-page'
 function App() {
-  return <h1>JS BASE</h1>
+  return <MainPage />
 }
 
 export default App
