@@ -1,0 +1,12 @@
+@import '@/shared/assets/fonts/fonts.css';
+@import '@/shared/ui/styles/index.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $background-color-primary;
+  color: $color-text-primary;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-regular;
+}
