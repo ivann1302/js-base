@@ -1,5 +1,6 @@
 import styles from './MainPage.module.scss'
 import { getDeviceType } from '@/shared/assets/lib/utils/device'
+import { Button } from '@/shared/ui/button'
 
 export const MainPage = () => {
   const deviceType = getDeviceType()
@@ -8,6 +9,9 @@ export const MainPage = () => {
   return (
     <div className={`${styles.container} ${isMobile ? styles.mobile : styles.desktop}`}>
       <h1 className={styles.title}>JS Base - база знаний для Frontend разработчика</h1>
+      <Button variant='primary' size='md'>
+        Старт
+      </Button>
     </div>
   )
 }

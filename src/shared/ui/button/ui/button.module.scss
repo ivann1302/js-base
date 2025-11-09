@@ -1,0 +1,65 @@
+@use '@/shared/ui/styles/index.scss' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  border: none;
+  border-radius: 3rem;
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 2px solid $color-text-primary;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  // Варианты
+  &.primary {
+    background-color: $color-text-primary;
+    color: $background-color-primary;
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+  }
+
+  &.secondary {
+    background-color: $background-color-secondary;
+    color: $color-text-primary;
+    border: 1px solid $border-color-primary;
+
+    &:hover:not(:disabled) {
+      background-color: $background-color-tertiary;
+    }
+  }
+
+  // Размеры
+  &.sm {
+    padding: 0.5rem 1rem;
+    font-size: $font-size-base;
+    min-height: 32px;
+  }
+
+  &.md {
+    padding: 0.75rem 1.5rem;
+    font-size: $font-size-lg;
+    min-height: 40px;
+  }
+
+  &.lg {
+    padding: 1rem 2rem;
+    font-size: $font-size-xl;
+    min-height: 48px;
+  }
+}

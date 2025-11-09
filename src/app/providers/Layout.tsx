@@ -8,8 +8,8 @@ interface ILayoutProps {
 
 export const Layout = ({ children }: ILayoutProps) => {
   return (
-    <div>
-      <main>{children}</main>
+    <div className={styles.layout}>
+      <main className={styles.main}>{children}</main>
       <Footer />
     </div>
   )
