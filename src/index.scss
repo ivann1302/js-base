@@ -20,7 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $breakpoint-desktop) {
   html,
   body {
     font-size: 18px;

@@ -1,0 +1,43 @@
+@use '@/shared/ui/styles/index.scss' as *;
+
+.footer {
+  border-top: 1px solid $color-text-tertiary;
+  padding: 8px 0;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+
+    @media (max-width: $breakpoint-tablet) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+    }
+
+    .copyright {
+      padding: 0 1rem;
+      text-align: center;
+      color: $color-text-tertiary;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      padding: 1rem;
+
+      @media (max-width: $breakpoint-tablet) {
+        padding: 0 1rem;
+      }
+      .link {
+        .icon {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
 @import '@/shared/ui/styles/index.scss';
 
-// Keyframes должны быть на верхнем уровне
 @keyframes typing {
   from {
     width: 0;
@@ -18,9 +17,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 88vh;
   width: 100%;
-  padding: 1rem;
+  padding: 0 1rem;
 
   .title {
     font-size: $font-size-xl;
@@ -52,7 +51,7 @@
     .title {
       font-size: $font-size-3xl;
       line-height: 1.5;
-      width: 36ch;
+      width: 48ch;
       white-space: nowrap;
       overflow: hidden;
       border-right: 3px solid;
