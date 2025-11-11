@@ -1,0 +1,128 @@
+@use '@/shared/ui/styles/index.scss' as *;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: $background-color-primary;
+  backdrop-filter: blur(10px);
+  opacity: 0.9;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid $color-text-tertiary;
+
+  .logo {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    font-family: $font-family-primary;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+  }
+
+  .headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+
+    .nav {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+
+      @media (max-width: $breakpoint-tablet) {
+        display: none;
+      }
+    }
+
+    .navLink {
+      font-size: $font-size-base;
+      font-weight: $font-weight-regular;
+      color: $color-text-primary;
+      font-family: $font-family-primary;
+      text-decoration: none;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      word-wrap: break-word;
+      max-width: 100%;
+      padding-left: 1rem;
+
+      &:hover {
+        color: $color-text-primary-hover;
+      }
+
+      &.active {
+        color: $color-text-primary-hover;
+      }
+    }
+
+    .searchContainer {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+
+      .searchInput {
+        background-color: $background-color-secondary;
+        border: none;
+        border-radius: 2.75rem;
+        padding: 0.5rem 1rem;
+        min-width: 200px;
+        min-height: 40px;
+
+        color: $color-text-tertiary;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-regular;
+        font-family: $font-family-primary;
+        text-decoration: none;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        max-width: 100%;
+
+        &::placeholder {
+          color: $color-text-tertiary;
+          font-size: $font-size-xs;
+          font-weight: $font-weight-regular;
+          font-family: $font-family-primary;
+          text-decoration: none;
+          text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          max-width: 100%;
+        }
+
+        &:focus {
+          outline: none;
+          border: none;
+        }
+      }
+
+      .searchButton {
+        position: relative;
+        right: 60px;
+        background: none;
+        width: 32px;
+        height: 32px;
+        border: none;
+        border-radius: 3rem;
+        cursor: pointer;
+
+        .icon {
+          width: 24px;
+          height: 24px;
+          background: none;
+
+          &:hover {
+            width: 28px;
+            height: 28px;
+            transition: all 0.3s ease;
+          }
+        }
+      }
+    }
+  }
+}
