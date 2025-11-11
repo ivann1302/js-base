@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Footer } from '@/widgets/footer'
-import { Header } from '@/widgets/headers'
+import { Header } from '@/widgets/header'
 import styles from './layout.module.scss'
 
 interface ILayoutProps {

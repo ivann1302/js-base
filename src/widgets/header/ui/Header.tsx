@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './header.module.scss'
 import searchIconUrl from '@/shared/assets/icons/searchIcon.svg?url'
 
@@ -10,17 +11,17 @@ const navItems = [
 export function Header() {
   return (
     <header className={styles.header}>
-      <a href='#' className={styles.logo}>
+      <Link to='/' className={styles.logo}>
         JS
         <br />
         Base
-      </a>
+      </Link>
       <div className={styles.headerContent}>
         <nav className={styles.nav}>
           {navItems.map(item => (
-            <a href={item.href} className={styles.navLink} key={item.index}>
+            <Link to={`/${item.href}`} className={styles.navLink} key={item.index}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className={styles.searchContainer}>
