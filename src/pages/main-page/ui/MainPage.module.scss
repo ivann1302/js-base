@@ -72,6 +72,15 @@
       font-size: $font-size-2xl;
     }
   }
+
+  .iconGallery {
+    position: relative;
+    top: 100px;
+
+    @media (max-width: 768px) {
+      top: 50px;
+    }
+  }
 }
 
 @media (min-width: 1024px) {

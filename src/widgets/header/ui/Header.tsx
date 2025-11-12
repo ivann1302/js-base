@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './header.module.scss'
-import searchIconUrl from '@/shared/assets/icons/searchIcon.svg?url'
-
+import { icons } from '@/shared/assets/icons'
 const navItems = [
   { href: '', label: 'База знаний', index: 0 },
   { href: '', label: 'Список задач', index: 1 },
@@ -27,7 +26,7 @@ export function Header() {
         <div className={styles.searchContainer}>
           <input type='text' placeholder='Поиск' className={styles.searchInput} />
           <button className={styles.searchButton}>
-            <img src={searchIconUrl} alt='Поиск' className={styles.icon} />
+            <img src={icons.search} alt='Поиск' className={styles.icon} />
           </button>
         </div>
       </div>

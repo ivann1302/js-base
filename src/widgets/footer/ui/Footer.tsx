@@ -1,6 +1,5 @@
 import styles from './footer.module.scss'
-import githubIconUrl from '@/shared/assets/icons/github.svg?url'
-import telegramIconUrl from '@/shared/assets/icons/telegram.svg?url'
+import { icons } from '@/shared/assets/icons'
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -21,7 +20,7 @@ export const Footer = () => {
             className={styles.link}
             aria-label='GitHub'
           >
-            <img src={githubIconUrl} alt='GitHub' className={styles.icon} />
+            <img src={icons.github} alt='GitHub' className={styles.icon} />
           </a>
 
           <a
@@ -31,7 +30,7 @@ export const Footer = () => {
             className={styles.link}
             aria-label='Telegram'
           >
-            <img src={telegramIconUrl} alt='Telegram' className={styles.icon} />
+            <img src={icons.telegram} alt='Telegram' className={styles.icon} />
           </a>
         </div>
       </div>
