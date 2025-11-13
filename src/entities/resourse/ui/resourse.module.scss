@@ -1,0 +1,44 @@
+@use '@/shared/ui/styles/index.scss' as *;
+
+.resourse {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.25rem;
+  text-transform: capitalize;
+
+  @media (max-width: $breakpoint-tablet) {
+    gap: 0.1rem;
+  }
+
+  .resourseTitle {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    font-family: $font-family-mono;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    word-wrap: break-word;
+    text-transform: none;
+
+    @media (max-width: $breakpoint-tablet) {
+      font-size: $font-size-lg;
+    }
+
+    &:hover {
+      color: $color-text-primary-hover;
+    }
+  }
+
+  .resourseDescription {
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    color: $color-text-secondary;
+    font-family: $font-family-mono;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    word-wrap: break-word;
+    line-height: 1.5;
+    text-transform: none;
+  }
+}
