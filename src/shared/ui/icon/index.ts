@@ -1,3 +1,3 @@
-import Icon from "./ui/Icon";
+import Icon from './ui/Icon'
 
-export default Icon;
+export default Icon

@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import styles from './header.module.scss'
 import { icons } from '@/shared/assets/icons'
 const navItems = [
-  { href: '', label: 'База знаний', index: 0 },
-  { href: '', label: 'Список задач', index: 1 },
-  { href: '', label: 'Полезные материалы', index: 2 },
+  { href: 'knowledge-base', label: 'База знаний', index: 0 },
+  { href: 'tasks', label: 'Список задач', index: 1 },
+  { href: 'resources', label: 'Полезные материалы', index: 2 },
 ]
 
 export function Header() {
