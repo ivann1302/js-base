@@ -1,0 +1,74 @@
+@use '@/shared/ui/styles/index.scss' as *;
+
+.taskCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  padding-bottom: 2rem;
+  border-radius: 0.5rem;
+  background-color: $background-color-secondary;
+  color: $color-text-primary;
+
+  .taskHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: none;
+    gap: 1rem;
+
+    .taskDifficulty {
+      font-size: $font-size-base;
+      font-weight: $font-weight-regular;
+      color: $color-text-primary;
+      font-family: $font-family-primary;
+      text-decoration: none;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      word-wrap: break-word;
+      text-transform: none;
+    }
+
+    .taskCheckbox {
+      width: 20px;
+      height: 20px;
+      border-radius: 0.5rem;
+      background-color: $background-color-secondary;
+      color: $color-text-primary;
+    }
+  }
+
+  .taskContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding-left: 1rem;
+  }
+
+  .taskNumber {
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    font-family: $font-family-primary;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    word-wrap: break-word;
+    text-transform: none;
+  }
+
+  .taskText {
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    color: $color-text-primary;
+    font-family: $font-family-primary;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    word-wrap: break-word;
+    text-transform: none;
+  }
+}

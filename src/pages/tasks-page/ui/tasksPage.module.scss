@@ -1,0 +1,34 @@
+@use '@/shared/ui/styles/index.scss' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+  padding: 7rem;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 7rem 1rem;
+  }
+
+  .title {
+    padding-bottom: 2rem;
+  }
+
+  .tasksList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+
+    .taskItem {
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

@@ -15,7 +15,7 @@ export default defineConfig([
       ...tseslint.configs.recommended,
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
-      prettier, // Должен быть последним
+      prettier,
     ],
     languageOptions: {
       ecmaVersion: 2020,
@@ -26,18 +26,15 @@ export default defineConfig([
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
-          argsIgnorePattern: '^_', // игнорировать переменные, начинающиеся с _
-          varsIgnorePattern: '^_', 
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
         },
       ],
-      '@typescript-eslint/no-explicit-any': 'warn', // запрет использования any
+      '@typescript-eslint/no-explicit-any': 'warn',
 
       // React
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-      
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+
       // Общие правила
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'prefer-const': 'error',
