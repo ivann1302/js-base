@@ -2,6 +2,7 @@ export type TTaskDifficulty = 'easy' | 'medium' | 'hard'
 
 export interface ITask {
   id: string
+  number: number
   text: string
   completed: boolean
   difficulty: TTaskDifficulty
