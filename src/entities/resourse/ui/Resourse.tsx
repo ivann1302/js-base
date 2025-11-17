@@ -12,7 +12,9 @@ export default function Resourse({ resource }: IResourceCardProps) {
       >
         {resource.title}
       </a>
-      <p className={styles.resourseDescription}>{resource.description}</p>
+      <p className={styles.resourseDescription}>
+        {resource.description}
+      </p>
     </li>
   )
 }

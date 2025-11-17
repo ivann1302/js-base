@@ -24,7 +24,8 @@ const resources = [
   },
   {
     title: 'Лекции по Frontend',
-    description: 'Видеолекции для углубленного изучения Frontend (плейлист на YouTube)',
+    description:
+      'Видеолекции для углубленного изучения Frontend (плейлист на YouTube)',
     link: 'https://www.youtube.com/watch?v=cXSQFFmixwU&list=PLKaafC45L_SQqca7_ClyPWTl-EXnEt0lB',
     id: '4',
   },

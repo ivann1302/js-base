@@ -18,15 +18,27 @@ export function Header() {
       <div className={styles.headerContent}>
         <nav className={styles.nav}>
           {navItems.map(item => (
-            <Link to={`/${item.href}`} className={styles.navLink} key={item.index}>
+            <Link
+              to={`/${item.href}`}
+              className={styles.navLink}
+              key={item.index}
+            >
               {item.label}
             </Link>
           ))}
         </nav>
         <div className={styles.searchContainer}>
-          <input type='text' placeholder='Поиск' className={styles.searchInput} />
+          <input
+            type='text'
+            placeholder='Поиск'
+            className={styles.searchInput}
+          />
           <button className={styles.searchButton}>
-            <img src={icons.search} alt='Поиск' className={styles.icon} />
+            <img
+              src={icons.search}
+              alt='Поиск'
+              className={styles.icon}
+            />
           </button>
         </div>
       </div>
