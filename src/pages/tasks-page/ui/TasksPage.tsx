@@ -6,8 +6,7 @@ import { tasks as initialTasks } from '@/pages/tasks-page/model/data'
 import { type ITask } from '@/entities/task/model/types'
 import { icons } from '@/shared/assets/icons'
 import Icon from '@/shared/ui/icon/ui/Icon'
-
-const TASKS_PER_PAGE = 10
+import { TASKS_PER_PAGE } from '@/pages/tasks-page/model/constants'
 
 export default function TasksPage() {
   const [tasks, setTasks] = useState<ITask[]>(initialTasks)

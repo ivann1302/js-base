@@ -15,15 +15,29 @@ export const router = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: '/tasks',
+        path: 'tasks',
         element: <TasksPage />,
       },
       {
-        path: '/knowledge-base',
+        path: 'knowledge-base',
         element: <KnowledgeBasePage />,
+        children: [
+          {
+            index: true,
+            element: <KnowledgeBasePage />,
+          },
+          {
+            path: ':categoryId',
+            element: <KnowledgeBasePage />,
+          },
+          {
+            path: ':categoryId/:topicId',
+            element: <KnowledgeBasePage />,
+          },
+        ],
       },
       {
-        path: '/resources',
+        path: 'resources',
         element: <ResourcesPage />,
       },
     ],
