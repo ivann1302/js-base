@@ -1,7 +1,8 @@
 import type { ButtonHTMLAttributes } from 'react'
 import styles from './button.module.scss'
 
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary'
   size?: 'sm' | 'md' | 'lg'
 }

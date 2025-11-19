@@ -20,7 +20,11 @@ export const Footer = () => {
             className={styles.link}
             aria-label='GitHub'
           >
-            <img src={icons.github} alt='GitHub' className={styles.icon} />
+            <img
+              src={icons.github}
+              alt='GitHub'
+              className={styles.icon}
+            />
           </a>
 
           <a
@@ -30,7 +34,11 @@ export const Footer = () => {
             className={styles.link}
             aria-label='Telegram'
           >
-            <img src={icons.telegram} alt='Telegram' className={styles.icon} />
+            <img
+              src={icons.telegram}
+              alt='Telegram'
+              className={styles.icon}
+            />
           </a>
         </div>
       </div>

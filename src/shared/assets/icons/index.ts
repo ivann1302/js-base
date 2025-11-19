@@ -10,6 +10,8 @@ import githubIconUrl from './github.svg?url'
 import telegramIconUrl from './telegram.svg?url'
 import userIconUrl from './userIcon.svg?url'
 import searchIconUrl from './searchIcon.svg?url'
+import arrowLeftIconUrl from './arrowLeft.svg?url'
+import arrowRightIconUrl from './arrowRight.svg?url'
 
 export const icons = {
   github: githubIconUrl,
@@ -24,4 +26,6 @@ export const icons = {
   redux: reduxIconUrl,
   typescript: typescriptIconUrl,
   next: nextIconUrl,
+  arrowLeft: arrowLeftIconUrl,
+  arrowRight: arrowRightIconUrl,
 }

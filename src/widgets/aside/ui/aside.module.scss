@@ -1,0 +1,100 @@
+@use '@/shared/ui/styles/index.scss' as *;
+
+.aside {
+  width: 300px;
+  min-width: 250px;
+  padding: 2rem 1rem;
+  border-right: 1px solid $border-color-primary;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: $color-text-primary;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.arrowIcon {
+  color: inherit;
+  transition: transform 0.2s;
+  transform: rotate(0deg);
+
+  &.expanded {
+    transform: rotate(90deg);
+  }
+}
+
+.categoryLink {
+  flex: 1;
+  padding: 0.5rem;
+  color: $color-text-primary;
+  text-decoration: none;
+  font-size: $font-size-base;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.active {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.topicsList {
+  margin: 0.5rem 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.topicItem {
+  margin: 0;
+  padding: 0;
+}
+
+.topicLink {
+  display: block;
+  padding: 0.5rem;
+  color: $color-text-tertiary;
+  text-decoration: none;
+  font-size: $font-size-base;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.active {
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+}
