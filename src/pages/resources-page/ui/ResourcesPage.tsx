@@ -29,6 +29,12 @@ const resources = [
     link: 'https://www.youtube.com/watch?v=cXSQFFmixwU&list=PLKaafC45L_SQqca7_ClyPWTl-EXnEt0lB',
     id: '4',
   },
+  {
+    title: 'Вы не знаете JS (серия книг) по JavaScript',
+    description:
+      'Серия книг, погружение в которую позволит вам окунуться в основные механизмы языка JavaScript',
+    id: '5',
+  },
 ]
 
 export default function ResourcesPage() {
