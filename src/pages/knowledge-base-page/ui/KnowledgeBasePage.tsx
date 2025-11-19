@@ -14,12 +14,69 @@ export default function KnowledgeBasePage() {
     .find(category => category.id === categoryId)
     ?.topics.find(topic => topic.id === topicId)
 
+  // Формирование хлебных крошек
+  const breadcrumbs = []
+  if (categoryId || topicId) {
+    breadcrumbs.push({
+      label: 'База знаний',
+      path: '/knowledge-base',
+    })
+
+    if (categoryId && currentCategory) {
+      breadcrumbs.push({
+        label: currentCategory.name,
+        path: `/knowledge-base/${categoryId}`,
+        isLast: !topicId,
+      })
+    }
+
+    if (topicId && currentTopic) {
+      breadcrumbs.push({
+        label: currentTopic.title,
+        path: '',
+        isLast: true,
+      })
+    }
+  }
+
   return (
     <div className={styles.container}>
       <Aside />
       <main className={styles.content}>
         {topicId && currentTopic ? (
           <article className={styles.article}>
+            {breadcrumbs.length > 0 && (
+              <nav
+                className={styles.breadcrumbs}
+                aria-label='Хлебные крошки'
+              >
+                {breadcrumbs.map((crumb, index) => (
+                  <span key={index} className={styles.breadcrumbItem}>
+                    {crumb.isLast ? (
+                      <span className={styles.breadcrumbCurrent}>
+                        {crumb.label}
+                      </span>
+                    ) : (
+                      <>
+                        <Link
+                          to={crumb.path}
+                          className={styles.breadcrumbLink}
+                        >
+                          {crumb.label}
+                        </Link>
+                        {index < breadcrumbs.length - 1 && (
+                          <span
+                            className={styles.breadcrumbSeparator}
+                          >
+                            /
+                          </span>
+                        )}
+                      </>
+                    )}
+                  </span>
+                ))}
+              </nav>
+            )}
             <h1 className={styles.articleTitle}>
               {currentTopic.title}
             </h1>
@@ -29,6 +86,38 @@ export default function KnowledgeBasePage() {
           </article>
         ) : categoryId && currentCategory ? (
           <div className={styles.topicsListContainer}>
+            {breadcrumbs.length > 0 && (
+              <nav
+                className={styles.breadcrumbs}
+                aria-label='Хлебные крошки'
+              >
+                {breadcrumbs.map((crumb, index) => (
+                  <span key={index} className={styles.breadcrumbItem}>
+                    {crumb.isLast ? (
+                      <span className={styles.breadcrumbCurrent}>
+                        {crumb.label}
+                      </span>
+                    ) : (
+                      <>
+                        <Link
+                          to={crumb.path}
+                          className={styles.breadcrumbLink}
+                        >
+                          {crumb.label}
+                        </Link>
+                        {index < breadcrumbs.length - 1 && (
+                          <span
+                            className={styles.breadcrumbSeparator}
+                          >
+                            /
+                          </span>
+                        )}
+                      </>
+                    )}
+                  </span>
+                ))}
+              </nav>
+            )}
             <h1 className={styles.categoryTitle}>
               {currentCategory.name}
             </h1>
