@@ -13,7 +13,10 @@
     "commit": "cz",
     "preview": "vite preview",
     "check": "npm run format:check && npm run lint && npx tsc --noEmit",
-    "check:fix": "npm run format && npm run lint:fix"
+    "check:fix": "npm run format && npm run lint:fix",
+    "docker:dev": "docker-compose up dev",
+    "docker:prod": "docker-compose up --build prod",
+    "docker:down": "docker-compose down"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.10.1",
