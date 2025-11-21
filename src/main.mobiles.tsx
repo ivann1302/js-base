@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client'
 import './index.scss'
-import AppMobile from './App.mobile'
+import { App } from './App'
 
 const rootElement = document.getElementById('root')!
 const root = createRoot(rootElement)
 
-root.render(<AppMobile />)
+root.render(<App />)

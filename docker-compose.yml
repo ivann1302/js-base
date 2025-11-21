@@ -1,0 +1,39 @@
+version: '3.8'
+
+# Сервисы (контейнеры)
+services:
+  # Сервис для разработки
+  dev:
+    # Сборка образа из Dockerfile.dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    # Проброс портов: хост:контейнер
+    ports:
+      - '5173:5173'
+    # Монтирование томов для hot-reload
+    volumes:
+      - .:/app # Текущая директория → /app в контейнере
+      - /app/node_modules # Исключаем node_modules (используем из контейнера)
+    # Переменные окружения
+    environment:
+      - NODE_ENV=development
+    # Автоперезапуск при падении
+    restart: unless-stopped
+    # Команда запуска
+    command: npm run dev -- --host 0.0.0.0
+
+  # Сервис для продакшн
+  prod:
+    # Сборка из Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Проброс портов
+    ports:
+      - '5173:5173'
+    # Переменные окружения
+    environment:
+      - NODE_ENV=production
+    # Автоперезапуск
+    restart: unless-stopped
