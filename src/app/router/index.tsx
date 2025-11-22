@@ -21,20 +21,14 @@ export const router = createBrowserRouter([
       {
         path: 'knowledge-base',
         element: <KnowledgeBasePage />,
-        children: [
-          {
-            index: true,
-            element: <KnowledgeBasePage />,
-          },
-          {
-            path: ':categoryId',
-            element: <KnowledgeBasePage />,
-          },
-          {
-            path: ':categoryId/:topicId',
-            element: <KnowledgeBasePage />,
-          },
-        ],
+      },
+      {
+        path: 'knowledge-base/:categoryId',
+        element: <KnowledgeBasePage />,
+      },
+      {
+        path: 'knowledge-base/:categoryId/:topicId',
+        element: <KnowledgeBasePage />,
       },
       {
         path: 'resources',

@@ -1,11 +1,10 @@
 import styles from './mainPage.module.scss'
-import { getDeviceType } from '@/shared/assets/lib/utils/device'
+import { useIsMobile } from '@/shared/lib/hooks/useDeviceType'
 import { Button } from '@/shared/ui/button'
 import { IconGallery } from '@/widgets/iconGallery'
 
 export const MainPage = () => {
-  const deviceType = getDeviceType()
-  const isMobile = deviceType === 'mobile'
+  const isMobile = useIsMobile()
 
   return (
     <div
