@@ -1,11 +1,10 @@
 import { Outlet } from 'react-router-dom'
-import { getDeviceType } from '@/shared/assets/lib/utils/device'
+import { useIsMobile } from '@/shared/lib/hooks/useDeviceType'
 import { Layout } from '@/app/providers/Layout'
 import styles from './App.module.scss'
 
 export function App() {
-  const deviceType = getDeviceType()
-  const isMobile = deviceType === 'mobile'
+  const isMobile = useIsMobile()
   return (
     <div className={isMobile ? styles.mobile : styles.desktop}>
       <Layout>
