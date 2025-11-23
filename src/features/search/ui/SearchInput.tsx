@@ -1,14 +1,14 @@
 import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce'
-import { searchLimited } from '../model'
+import { searchLimited } from '@/features/search/model'
 import {
   extractMatchFragment,
   highlightMatch,
 } from '@/shared/lib/utils/searchUtils'
 import { icons } from '@/shared/assets/icons'
 import styles from './searchInput.module.scss'
-import type { ISearchResult } from '../model/types'
+import type { ISearchResult } from '@/features/search/model/types'
 
 const DROPDOWN_LIMIT = 5
 const DEBOUNCE_DELAY = 300
@@ -142,7 +142,7 @@ export const SearchInput = () => {
         className={styles.searchInput}
       />
       <button
-        className={styles.searchButton}
+        className={`${styles.searchButton} ${query.trim() ? styles.active : ''}`}
         onClick={() => query.trim() && handleShowAll()}
         aria-label='Поиск'
       >
