@@ -6,6 +6,14 @@ import { SearchResultLink } from '@/features/search/ui/SearchResultLink'
 import type { ISearchResults } from '@/features/search/model/types'
 import styles from './searchResultsPage.module.scss'
 
+type SearchResultLinkStyles = {
+  resultLink: string
+  resultHeader: string
+  resultCategory: string
+  resultTitle: string
+  resultDescription: string
+}
+
 export default function SearchResultsPage() {
   const [searchParams] = useSearchParams()
   const query = searchParams.get('q') || ''
@@ -73,7 +81,7 @@ export default function SearchResultsPage() {
                 <SearchResultLink
                   result={result}
                   query={query}
-                  styles={styles}
+                  styles={styles as SearchResultLinkStyles}
                 />
               </li>
             ))}
@@ -93,7 +101,7 @@ export default function SearchResultsPage() {
                 <SearchResultLink
                   result={result}
                   query={query}
-                  styles={styles}
+                  styles={styles as SearchResultLinkStyles}
                 />
               </li>
             ))}
@@ -113,7 +121,7 @@ export default function SearchResultsPage() {
                 <SearchResultLink
                   result={result}
                   query={query}
-                  styles={styles}
+                  styles={styles as SearchResultLinkStyles}
                   isExternal={true}
                 />
               </li>

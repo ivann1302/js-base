@@ -14,6 +14,7 @@
     "preview": "vite preview",
     "check": "npm run format:check && npm run lint && npx tsc --noEmit",
     "check:fix": "npm run format && npm run lint:fix",
+    "precommit": "npm run check && npm run lint && npm run format",
     "docker:dev": "docker-compose up dev",
     "docker:prod": "docker-compose up --build prod",
     "docker:down": "docker-compose down"
