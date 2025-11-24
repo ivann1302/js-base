@@ -1,13 +1,7 @@
-/**
- * Нормализует строку для поиска (убирает лишние пробелы, приводит к нижнему регистру)
- */
 export const normalizeSearchQuery = (query: string): string => {
   return query.trim().toLowerCase()
 }
 
-/**
- * Проверяет, содержит ли текст искомую подстроку
- */
 export const matchesSearch = (
   text: string,
   query: string
@@ -17,9 +11,6 @@ export const matchesSearch = (
   return normalizedText.includes(normalizedQuery)
 }
 
-/**
- * Выделяет совпадения в тексте для подсветки
- */
 export const highlightMatch = (
   text: string,
   query: string
@@ -29,9 +20,6 @@ export const highlightMatch = (
   return text.replace(regex, '<mark>$1</mark>')
 }
 
-/**
- * Извлекает фрагмент текста с совпадением (для описания)
- */
 export const extractMatchFragment = (
   text: string,
   query: string,

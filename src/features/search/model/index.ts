@@ -4,3 +4,4 @@ export type {
   ISearchResults,
   SearchResultType,
 } from './types'
+export { DROPDOWN_LIMIT, DEBOUNCE_DELAY } from './constants'
