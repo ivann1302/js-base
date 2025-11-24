@@ -1,16 +1,15 @@
 import { useEffect, type RefObject } from 'react'
 
-// Хук для закрытия компонента при клике вне него области
-
 export const useClickOutside = (
   refs: RefObject<HTMLElement>[],
   callback: () => void
 ) => {
   useEffect(() => {
+    if (refs.length === 0) return
+
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node
 
-      // Проверяем, что клик был вне всех указанных элементов
       const isClickOutside = refs.every(
         ref => ref.current && !ref.current.contains(target)
       )

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import styles from './aside.module.scss'
-import { categories } from '@/pages/knowledge-base-page/model/data'
+import { categories } from '@/entities/knowledge/model'
 
 export function Aside() {
   const { categoryId, topicId } = useParams()

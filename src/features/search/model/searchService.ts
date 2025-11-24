@@ -1,6 +1,6 @@
-import { categories } from '@/pages/knowledge-base-page/model/data'
-import { tasks } from '@/pages/tasks-page/model/data'
-import { resources } from '@/pages/resources-page/model/data'
+import { categories } from '@/entities/knowledge/model'
+import { tasks } from '@/entities/task/model'
+import { resources } from '@/entities/resourse/model'
 import { matchesSearch } from '@/shared/lib/utils/searchUtils'
 import type { ISearchResult, ISearchResults } from './types'
 

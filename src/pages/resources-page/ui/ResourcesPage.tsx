@@ -1,6 +1,6 @@
 import styles from './resourcesPage.module.scss'
 import { Resourse } from '@/entities'
-import { resources } from '@/pages/resources-page/model/data'
+import { resources } from '@/entities/resourse/model'
 
 export default function ResourcesPage() {
   return (

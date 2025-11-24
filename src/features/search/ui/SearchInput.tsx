@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useClickOutside } from '@/shared/lib/hooks'
 import {
@@ -48,8 +48,8 @@ export const SearchInput = () => {
     setFocusedIndex,
   })
 
-  // Закрытие при клике вне компонента
-  useClickOutside([inputRef, dropdownRef], () => setIsOpen(false))
+  const handleClose = useCallback(() => setIsOpen(false), [setIsOpen])
+  useClickOutside([inputRef, dropdownRef], handleClose)
 
   return (
     <div className={styles.searchContainer}>
