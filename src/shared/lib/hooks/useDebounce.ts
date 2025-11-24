@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
 
-/**
- * Хук для задержки обновления значения (debounce)
- */
-export const useDebounce = <T>(value: T, delay: number = 300): T => {
+export const useDebounce = <T>(value: T, delay: number = 1000): T => {
   const [debouncedValue, setDebouncedValue] = useState<T>(value)
 
   useEffect(() => {

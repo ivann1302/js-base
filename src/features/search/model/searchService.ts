@@ -4,9 +4,7 @@ import { resources } from '@/pages/resources-page/model/data'
 import { matchesSearch } from '@/shared/lib/utils/searchUtils'
 import type { ISearchResult, ISearchResults } from './types'
 
-/**
- * Поиск по базе знаний (категории и темы)
- */
+// Поиск по базе знаний (категории и темы)
 const searchKnowledge = (query: string): ISearchResult[] => {
   const results: ISearchResult[] = []
 
@@ -44,9 +42,7 @@ const searchKnowledge = (query: string): ISearchResult[] => {
   return results
 }
 
-/**
- * Поиск по задачам
- */
+// поиск по задачам
 const searchTasks = (query: string): ISearchResult[] => {
   return tasks
     .filter(task => matchesSearch(task.text, query))
@@ -59,9 +55,7 @@ const searchTasks = (query: string): ISearchResult[] => {
     }))
 }
 
-/**
- * Поиск по ресурсам
- */
+// поиск по ресурсам
 const searchResources = (query: string): ISearchResult[] => {
   return resources
     .filter(
@@ -79,9 +73,7 @@ const searchResources = (query: string): ISearchResult[] => {
     }))
 }
 
-/**
- * Основная функция поиска
- */
+// основная функция поиска
 export const search = (query: string): ISearchResults => {
   if (!query.trim()) {
     return {
@@ -107,9 +99,7 @@ export const search = (query: string): ISearchResults => {
   }
 }
 
-/**
- * Получить ограниченное количество результатов для выпадающего списка
- */
+// ограничение количества результатов для выпадающего списка
 export const searchLimited = (
   query: string,
   limit: number = 5
