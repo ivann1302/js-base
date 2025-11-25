@@ -1,13 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import styles from './aside.module.scss'
 import { categories } from '@/entities/knowledge/model'
+import {
+  getExpandedCategoriesFromStorage,
+  saveExpandedCategoriesToStorage,
+} from '@/shared/lib/utils/sessionStorage'
 
 export function Aside() {
   const { categoryId, topicId } = useParams()
   const [expandedCategories, setExpandedCategories] = useState<
     Set<string>
-  >(new Set())
+  >(getExpandedCategoriesFromStorage)
+
+  useEffect(() => {
+    saveExpandedCategoriesToStorage(expandedCategories)
+  }, [expandedCategories])
 
   const toggleCategory = (categoryId: string) => {
     setExpandedCategories(prev => {

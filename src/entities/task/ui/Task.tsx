@@ -7,7 +7,12 @@ export default function Task({ task, onToggle }: ITaskCardProps) {
     <div className={styles.taskCard}>
       <div className={styles.taskHeader}>
         <span className={styles.taskDifficulty}>
-          {DIFFICULTY_LABELS[task.difficulty]}
+          Сложность: {DIFFICULTY_LABELS[task.difficulty]}
+        </span>
+        <span
+          className={`${styles.taskStatus} ${task.completed ? styles.completed : styles.notCompleted}`}
+        >
+          {task.completed ? 'Решена' : 'Не решена'}
         </span>
         <label className={styles.checkboxLabel}>
           <input
