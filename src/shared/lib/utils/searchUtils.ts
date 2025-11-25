@@ -2,6 +2,10 @@ export const normalizeSearchQuery = (query: string): string => {
   return query.trim().toLowerCase()
 }
 
+const escapeRegExp = (string: string): string => {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
 export const matchesSearch = (
   text: string,
   query: string
@@ -16,7 +20,8 @@ export const highlightMatch = (
   query: string
 ): string => {
   const normalizedQuery = normalizeSearchQuery(query)
-  const regex = new RegExp(`(${normalizedQuery})`, 'gi')
+  const escapedQuery = escapeRegExp(normalizedQuery)
+  const regex = new RegExp(`(${escapedQuery})`, 'gi')
   return text.replace(regex, '<mark>$1</mark>')
 }
 

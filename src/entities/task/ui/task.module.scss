@@ -13,7 +13,7 @@
   .taskHeader {
     display: flex;
     flex-direction: row;
-    align-items: start;
+    align-items: center;
     justify-content: flex-end;
     width: 100%;
     padding: 0.5rem;
@@ -30,6 +30,27 @@
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       word-wrap: break-word;
       text-transform: none;
+    }
+
+    .taskStatus {
+      font-size: $font-size-base;
+      font-weight: $font-weight-semi-bold;
+      font-family: $font-family-primary;
+      text-decoration: none;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      word-wrap: break-word;
+      text-transform: none;
+      color: $background-color-primary;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.4rem;
+
+      &.completed {
+        background: $color-text-primary;
+      }
+
+      &.notCompleted {
+        background-color: #f87171;
+      }
     }
 
     .checkboxLabel {

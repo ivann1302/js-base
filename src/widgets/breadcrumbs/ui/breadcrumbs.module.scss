@@ -1,0 +1,35 @@
+@use '@/shared/ui/styles/index.scss' as *;
+
+.breadcrumbs {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breadcrumbLink {
+  color: $color-text-secondary;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.breadcrumbCurrent {
+  color: $color-text-primary;
+  font-weight: $font-weight-semi-bold;
+}
+
+.breadcrumbSeparator {
+  color: $color-text-tertiary;
+  margin: 0 0.25rem;
+}

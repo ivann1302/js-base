@@ -1,15 +1,14 @@
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import styles from './tasksPage.module.scss'
 import { Task } from '@/entities/task'
-import { tasks as initialTasks } from '@/pages/tasks-page/model/data'
-import { type ITask } from '@/entities/task/model/types'
 import { icons } from '@/shared/assets/icons'
 import Icon from '@/shared/ui/icon/ui/Icon'
 import { TASKS_PER_PAGE } from '@/pages/tasks-page/model/constants'
+import { useTasksWithPersistence } from '@/pages/tasks-page/lib/hooks/useTasksWithPersistence'
 
 export default function TasksPage() {
-  const [tasks, setTasks] = useState<ITask[]>(initialTasks)
+  const { tasks, handleToggle } = useTasksWithPersistence()
   const [searchParams, setSearchParams] = useSearchParams()
 
   const currentPage = useMemo(() => {
@@ -23,16 +22,6 @@ export default function TasksPage() {
     startIndex,
     startIndex + TASKS_PER_PAGE
   )
-
-  const handleToggle = (id: string) => {
-    setTasks(
-      tasks.map(task =>
-        task.id === id
-          ? { ...task, completed: !task.completed }
-          : task
-      )
-    )
-  }
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {

@@ -1,5 +1,5 @@
+@use '@/shared/ui/styles/index.scss' as *;
 @import '@/shared/assets/fonts/fonts.css';
-@import '@/shared/ui/styles/index.scss';
 
 * {
   margin: 0;
@@ -15,7 +15,7 @@ body {
   color: $color-text-primary;
   font-family: $font-family-primary;
   font-weight: $font-weight-regular;
-  font-size: 16px; // Mobile-first базовый размер
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

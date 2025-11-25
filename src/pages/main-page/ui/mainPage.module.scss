@@ -1,4 +1,4 @@
-@import '@/shared/ui/styles/index.scss';
+@use '@/shared/ui/styles/index.scss' as *;
 
 @keyframes typing {
   from {
@@ -50,7 +50,7 @@
     padding: 2rem;
 
     .title {
-      font-size: $font-size-3xl;
+      font-size: $font-size-2xl;
       line-height: 1.5;
       width: 48ch;
       white-space: nowrap;
@@ -88,7 +88,7 @@
     padding: 3rem;
 
     .title {
-      font-size: $font-size-3xl;
+      font-size: $font-size-2xl;
     }
   }
 }

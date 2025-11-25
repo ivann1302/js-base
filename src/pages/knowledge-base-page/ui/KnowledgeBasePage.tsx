@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
 import styles from './knowledgeBasePage.module.scss'
 import { Aside } from '@/widgets/aside/ui/Aside'
-import { categories } from '@/pages/knowledge-base-page/model/data'
+import { Breadcrumbs } from '@/widgets/breadcrumbs'
+import { categories } from '@/entities/knowledge/model'
 
 export default function KnowledgeBasePage() {
   const { categoryId, topicId } = useParams()
@@ -14,7 +15,6 @@ export default function KnowledgeBasePage() {
     .find(category => category.id === categoryId)
     ?.topics.find(topic => topic.id === topicId)
 
-  // Формирование хлебных крошек
   const breadcrumbs = []
   if (categoryId || topicId) {
     breadcrumbs.push({
@@ -46,36 +46,7 @@ export default function KnowledgeBasePage() {
         {topicId && currentTopic ? (
           <article className={styles.article}>
             {breadcrumbs.length > 0 && (
-              <nav
-                className={styles.breadcrumbs}
-                aria-label='Хлебные крошки'
-              >
-                {breadcrumbs.map((crumb, index) => (
-                  <span key={index} className={styles.breadcrumbItem}>
-                    {crumb.isLast ? (
-                      <span className={styles.breadcrumbCurrent}>
-                        {crumb.label}
-                      </span>
-                    ) : (
-                      <>
-                        <Link
-                          to={crumb.path}
-                          className={styles.breadcrumbLink}
-                        >
-                          {crumb.label}
-                        </Link>
-                        {index < breadcrumbs.length - 1 && (
-                          <span
-                            className={styles.breadcrumbSeparator}
-                          >
-                            /
-                          </span>
-                        )}
-                      </>
-                    )}
-                  </span>
-                ))}
-              </nav>
+              <Breadcrumbs items={breadcrumbs} />
             )}
             <h1 className={styles.articleTitle}>
               {currentTopic.title}
@@ -87,36 +58,7 @@ export default function KnowledgeBasePage() {
         ) : categoryId && currentCategory ? (
           <div className={styles.topicsListContainer}>
             {breadcrumbs.length > 0 && (
-              <nav
-                className={styles.breadcrumbs}
-                aria-label='Хлебные крошки'
-              >
-                {breadcrumbs.map((crumb, index) => (
-                  <span key={index} className={styles.breadcrumbItem}>
-                    {crumb.isLast ? (
-                      <span className={styles.breadcrumbCurrent}>
-                        {crumb.label}
-                      </span>
-                    ) : (
-                      <>
-                        <Link
-                          to={crumb.path}
-                          className={styles.breadcrumbLink}
-                        >
-                          {crumb.label}
-                        </Link>
-                        {index < breadcrumbs.length - 1 && (
-                          <span
-                            className={styles.breadcrumbSeparator}
-                          >
-                            /
-                          </span>
-                        )}
-                      </>
-                    )}
-                  </span>
-                ))}
-              </nav>
+              <Breadcrumbs items={breadcrumbs} />
             )}
             <h1 className={styles.categoryTitle}>
               {currentCategory.name}

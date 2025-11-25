@@ -1,7 +1,6 @@
-import { type ITask } from '@/entities/task/model/types'
+import { type ITask } from './types'
 
 export const tasks: ITask[] = [
-  // Easy - базовые операции
   {
     id: '1',
     number: 1,
@@ -72,8 +71,6 @@ export const tasks: ITask[] = [
     completed: false,
     difficulty: 'easy',
   },
-
-  // Medium - более сложные алгоритмы
   {
     id: '11',
     number: 11,
@@ -165,8 +162,6 @@ export const tasks: ITask[] = [
     completed: false,
     difficulty: 'medium',
   },
-
-  // Hard - сложные алгоритмы
   {
     id: '24',
     number: 24,
