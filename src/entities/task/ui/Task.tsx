@@ -27,7 +27,6 @@ export default function Task({ task, onToggle }: ITaskCardProps) {
         </label>
       </div>
       <div className={styles.taskContent}>
-        <span className={styles.taskNumber}>{task.number}</span>
         <p className={styles.taskText}>{task.text}</p>
       </div>
     </div>
