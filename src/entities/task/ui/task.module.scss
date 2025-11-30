@@ -133,16 +133,6 @@
     padding-left: 1rem;
   }
 
-  .taskNumber {
-    font-weight: $font-weight-bold;
-    color: $color-text-primary;
-    font-family: $font-family-primary;
-    text-decoration: none;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    word-wrap: break-word;
-    text-transform: none;
-  }
-
   .taskText {
     font-size: $font-size-base;
     font-weight: $font-weight-regular;

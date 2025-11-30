@@ -16,6 +16,93 @@
     padding-bottom: 2rem;
   }
 
+  .filtersContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: $background-color-secondary;
+    border-radius: 0.5rem;
+
+    @media (max-width: $breakpoint-tablet) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+  }
+
+  .statusFilter {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filterButton {
+    padding: 0.5rem 1rem;
+    background-color: $background-color-primary;
+    border: 2px solid $border-color-primary;
+    border-radius: 0.4rem;
+    color: $color-text-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $color-text-primary;
+      opacity: 0.8;
+    }
+
+    &.active {
+      background-color: $color-text-primary;
+      color: $background-color-primary;
+      border-color: $color-text-primary;
+      font-weight: $font-weight-semi-bold;
+    }
+  }
+
+  .sortFilter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sortLabel {
+    font-size: $font-size-base;
+    color: $color-text-primary;
+    font-weight: $font-weight-regular;
+  }
+
+  .sortButton {
+    padding: 0.5rem 1rem;
+    background-color: $background-color-primary;
+    border: 2px solid $border-color-primary;
+    border-radius: 0.4rem;
+    color: $color-text-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $color-text-primary;
+      opacity: 0.8;
+    }
+
+    &.active {
+      background-color: $color-text-primary;
+      color: $background-color-primary;
+      border-color: $color-text-primary;
+      font-weight: $font-weight-semi-bold;
+    }
+  }
+
   .tasksList {
     width: 100%;
     display: flex;

@@ -5,3 +5,9 @@ export const DIFFICULTY_LABELS: Record<TTaskDifficulty, string> = {
   medium: 'средняя',
   hard: 'тяжелая',
 }
+
+export const DIFFICULTY_ORDER: Record<TTaskDifficulty, number> = {
+  easy: 1,
+  medium: 2,
+  hard: 3,
+}

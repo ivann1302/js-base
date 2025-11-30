@@ -1,31 +1,86 @@
-import { useMemo } from 'react'
+import { useMemo, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import styles from './tasksPage.module.scss'
 import { Task } from '@/entities/task'
 import { icons } from '@/shared/assets/icons'
 import Icon from '@/shared/ui/icon/ui/Icon'
-import { TASKS_PER_PAGE } from '@/pages/tasks-page/model/constants'
+import {
+  TASKS_PER_PAGE,
+  DEFAULT_FILTERS,
+} from '@/pages/tasks-page/model/constants'
 import { useTasksWithPersistence } from '@/pages/tasks-page/lib/hooks/useTasksWithPersistence'
+import { useTasksFilter } from '@/pages/tasks-page/lib/hooks/useTasksFilter'
+import { TaskStatusFilter } from './TaskStatusFilter'
+import { TaskSort } from './TaskSort'
+import type {
+  TTaskStatusFilter,
+  TTaskSortOrder,
+} from '@/pages/tasks-page/model/types'
+import {
+  getTasksFiltersFromStorage,
+  saveTasksFiltersToStorage,
+} from '@/shared/lib/utils/localStorage'
 
 export default function TasksPage() {
   const { tasks, handleToggle } = useTasksWithPersistence()
   const [searchParams, setSearchParams] = useSearchParams()
+
+  const statusFilter =
+    (searchParams.get('status') as TTaskStatusFilter) ||
+    DEFAULT_FILTERS.status
+  const sortOrder =
+    (searchParams.get('sort') as TTaskSortOrder) ||
+    DEFAULT_FILTERS.sort
+
+  useEffect(() => {
+    const savedFilters = getTasksFiltersFromStorage()
+    if (
+      savedFilters.status !== statusFilter ||
+      savedFilters.sort !== sortOrder
+    ) {
+      saveTasksFiltersToStorage({
+        status: statusFilter,
+        sort: sortOrder,
+      })
+    }
+  }, [statusFilter, sortOrder])
+
+  const filters = useMemo(
+    () => ({ status: statusFilter, sort: sortOrder }),
+    [statusFilter, sortOrder]
+  )
+
+  const filteredAndSortedTasks = useTasksFilter(tasks, filters)
 
   const currentPage = useMemo(() => {
     const page = Number(searchParams.get('page')) || 1
     return page < 1 ? 1 : page
   }, [searchParams])
 
-  const totalPages = Math.ceil(tasks.length / TASKS_PER_PAGE)
+  const totalPages = Math.ceil(
+    filteredAndSortedTasks.length / TASKS_PER_PAGE
+  )
   const startIndex = (currentPage - 1) * TASKS_PER_PAGE
-  const paginatedTasks = tasks.slice(
+  const paginatedTasks = filteredAndSortedTasks.slice(
     startIndex,
     startIndex + TASKS_PER_PAGE
   )
 
+  const handleStatusChange = (status: TTaskStatusFilter) => {
+    setSearchParams({ status, sort: sortOrder, page: '1' })
+  }
+
+  const handleSortChange = (sort: TTaskSortOrder) => {
+    setSearchParams({ status: statusFilter, sort, page: '1' })
+  }
+
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
-      setSearchParams({ page: page.toString() })
+      setSearchParams(prev => {
+        const newParams = new URLSearchParams(prev)
+        newParams.set('page', page.toString())
+        return newParams
+      })
     }
   }
 
@@ -44,6 +99,15 @@ export default function TasksPage() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>База задач</h1>
+
+      <div className={styles.filtersContainer}>
+        <TaskStatusFilter
+          value={statusFilter}
+          onChange={handleStatusChange}
+        />
+        <TaskSort value={sortOrder} onChange={handleSortChange} />
+      </div>
+
       <ul className={styles.tasksList}>
         {paginatedTasks.map(task => {
           return (
